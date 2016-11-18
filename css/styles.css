@@ -48,7 +48,8 @@ table {
 }
 section{
     position: relative;
-    padding-top: 50px;
+    padding-top: 32px;
+    padding-bottom: 20px;
 }
 #Presentacion{
 
@@ -66,7 +67,6 @@ section{
 }
 #AcercaDe{
 
-    margin-bottom: 40px;
 }
 /***** ****/
 *{
@@ -147,10 +147,25 @@ img {
 #footer{
     text-align: center;
 }
-p{
-    padding-bottom: 50px;
-}
+
 
 
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
+
+@media (min-width: 320px){
+    nav{
+        display:none;
+    }
+}
+@media (min-width: 768px){
+    nav{
+        display:block;
+        position: absolute;
+    }
+}
+@media (min-width: 900px){
+    nav{
+        position: fixed;
+    }
+}
