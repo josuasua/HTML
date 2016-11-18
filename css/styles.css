@@ -1,0 +1,155 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+section{
+    position: relative;
+    padding-top: 50px;
+}
+#Presentacion{
+
+    margin-top: 300px;
+}
+#productos{
+
+}
+
+#Localizacion{
+
+}
+#contacto{
+
+}
+#AcercaDe{
+
+    margin-bottom: 40px;
+}
+/***** ****/
+*{
+    font-size: 16pt;
+    font-family: Calibri, Verdana;
+}
+h1,h2,h3,h4,h5,h6{
+    /*font-family: Calibri, Andalus, Verdana, Arial;*/
+
+}
+h1{
+    font-size: 150%;
+    text-align: center;
+}
+h2{
+    font-size: 140%;
+}
+h3{
+    font-size: 130%;
+}
+header{
+    font-family: "Times New Roman";
+}
+
+body{
+    max-width: 1024px;
+    margin: auto;
+    background: #bebebe;
+}
+body div#wrapper > header{ /*Puede ponerse directamente div#wrapper sin body, ya que en teoria el id tiene que ser unico, incluso #wrapper*/
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    top: 32px;
+    background-color: #d9d9e0;
+}
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height:32px;
+    width: 100%;
+    z-index: 100;
+}
+nav ul{
+    background: aqua;
+    height: 32px;
+
+}
+ul{
+    background-color: coral;
+    height: 32px;
+}
+ul li{
+    float: left;
+    min-width: 100px;
+    text-align: center;
+}
+footer{
+    background: #03fcff;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+}
+img {
+    float: left;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#conejo{
+    border-radius: 50%
+}
+#secciones{
+    margin-bottom: 50px;
+}
+#footer{
+    text-align: center;
+}
+
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
