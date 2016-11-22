@@ -29,7 +29,7 @@ footer, header, menu, nav, section {
     display: block;
 }
 body {
-    line-height: 1;
+    /*line-height: 1;*/
 }
 ol, ul {
     list-style: none;
@@ -92,13 +92,13 @@ header{
 }
 
 body{
-    max-width: 1024px;
-    margin: auto;
+    /*max-width: 1024px;*/
+    margin: 0;
     background: #bebebe;
 }
 body div#wrapper > header{ /*Puede ponerse directamente div#wrapper sin body, ya que en teoria el id tiene que ser unico, incluso #wrapper*/
     width: 100%;
-    margin: 0 auto;
+    margin: 0;
     position: relative;
     top: 32px;
     background-color: #d9d9e0;
@@ -111,14 +111,103 @@ nav{
     width: 100%;
     z-index: 100;
 }
-nav ul{
+nav ul {
     background: aqua;
     height: 32px;
-
 }
+
+@-moz-keyframes slider { /*Firefox*/
+    0% {left: 0%;}
+    20%{left: 0%;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: -200%;}
+    75%{left: -300%;}
+    95%{left: -300%;}
+    100%{left: -400%;}
+}
+
+@-webkit-keyframes slider { /*chrome*/
+    0% {left: 0%;}
+    20%{left: 0%;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: -200%;}
+    75%{left: -300%;}
+    95%{left: -300%;}
+    100%{left: -400%;}
+}
+
+@-ms-keyframes slider { /*Microsoft*/
+    0% {left: 0%;}
+    20%{left: 0%;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: -200%;}
+    75%{left: -300%;}
+    95%{left: -300%;}
+    100%{left: -400%;}
+}
+
+@-khtml-keyframes slider {
+    0% {left: 0%;}
+    20%{left: 0%;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: -200%;}
+    75%{left: -300%;}
+    95%{left: -300%;}
+    100%{left: -400%;}
+}
+@-o-keyframes slider {
+    0% {left: 0%;}
+    20%{left: 0%;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: -200%;}
+    75%{left: -300%;}
+    95%{left: -300%;}
+    100%{left: -400%;}
+}
+
+@keyframes slider { /*generico*/
+    0% {left: 0%;}
+    20%{left:0%;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: -200%;}
+    75%{left: -300%;}
+    95%{left: -300%;}
+    100%{left: -400%;}
+}
+
+div#slider figure img{
+    width:calc(100%/5);
+    float: left;
+}
+
+div#slider figure{
+    position: relative;
+    width: 500%; /*puedo poner tb 500vw, no siempre es lo mismo. Esto hace referencia al viewport, ancho del elemento*/
+    left: 0;
+    margin:0;
+    animation: 20s slider infinite;
+    border-image-width: 0;
+}
+div#slider{
+    overflow-x: hidden;
+}
+
 ul{
-    background-color: coral;
-    height: 32px;
+
+    display: block;
+
 }
 ul li{
     float: left;
@@ -133,12 +222,6 @@ footer{
     bottom: 0;
     z-index: 100;
 }
-img {
-    float: left;
-    display: inline-block;
-    margin-left: 10px;
-    margin-right: 10px;
-}
 
 #conejo{
     border-radius: 50%
@@ -146,7 +229,9 @@ img {
 
 #footer{
     text-align: center;
+
 }
+
 
 
 

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!-- Importante colocar el viewport, para ajustar vistas-->
     <title>Primera p&aacute;gina web creado para el FrontEnd</title>
-    <link href="css/styles.css" rel ="stylesheet" type="text/css"/>
+    <link href="css/styles.css?v1.0" rel ="stylesheet" type="text/css"/>
 
     <!-- http://realfavicongenerator.net/ para generar favicons-->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -18,6 +18,7 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
+
     <!-- el type en algunas ocasiones ya no es necesario -->
     <!-- Si por ejemplo queremos imprimir algo en concreto con un estilo diferente, podremos usar algo como
     <link rel="styleheet" href="print.css"/> -->
@@ -37,7 +38,7 @@
     <aside>
         <!--menu de barra lateral, se puede meter el nav aqui dentro.-->
     </aside>
-    <nav>
+    <nav> <!-- si pongo role al nav paraaccesibilidad, indico al navegador sepa que es un menu -->
         <!--Contenedor del menu -->
         <ul class="clearfix">
             <li><a href="#Presentacion">Presentacion</a></li>
@@ -50,6 +51,32 @@
             <li></li>
         </ul>
     </nav>
+
+    <div id="slider" role="slider"> <!-- esto es algo para accesibilidad, que el navegador sepa que es un slider -->
+        <!--
+        rel="follow" que el bot de google entre en los links o no dejarle.
+        rel="no-follow" -->
+
+        <figure>
+            <a href="favicon-32x32.png" role="no-follow" target="_blank" download >
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ibiza.jpg">
+            </a>
+            <a href="favicon-32x32.png" role="no-follow" target="_blank" download >
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/austin-fireworks.jpg">
+            </a>
+            <a href="favicon-32x32.png" role="no-follow" target="_blank" download >
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/taj-mahal_copy.jpg">
+            </a>
+            </a>
+            <a href="favicon-32x32.png" role="no-follow" target="_blank" download >
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ankor-wat.jpg">
+            </a>
+            <a href="favicon-32x32.png" role="no-follow" target="_blank" download >
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ibiza.jpg">
+            </a>
+        </figure>
+    </div>
+
     <main class="clearfix">
         <section id="Presentacion">
             <header><h2>Presentacion</h2></header>
@@ -145,6 +172,15 @@
     <div>
         <p id="footer">Pagina web creada en mi <a href="http://localhost" target="_blank"> casa &copy;&circledR;</a></p>
     </div>
+
+
+        <ul>
+            <div id="social">
+                <a class="twitter" href="https://www.twitter.com" target="_blank" alt="Twitter"></a>
+                <a class="facebook" href="https://www.facebook.com" target="_blank" alt="Facebook"></a>
+            </div>
+        </ul>
+
     <!-- puedo tener varios footer -->
 
     <!-- target blank me abre la url en una nueva pestaña -->
