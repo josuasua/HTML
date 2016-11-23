@@ -1,1 +1,12 @@
 HTML de iniciacion sin ayuda de bootstrap y herramientas similares
+
+iconfinder.com
+
+https://www.amcharts.com/
+
+http://vedmant.com/image-slider-on-pure-css3/
+
+http://urbaninfluence.com/2015/05/make-a-background-image-slider-with-css-keyframes/
+
+http://animateyourhtml5.appspot.com/
+

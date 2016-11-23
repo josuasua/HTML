@@ -67,7 +67,6 @@
             <a href="favicon-32x32.png" role="no-follow" target="_blank" download >
                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/taj-mahal_copy.jpg">
             </a>
-            </a>
             <a href="favicon-32x32.png" role="no-follow" target="_blank" download >
                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ankor-wat.jpg">
             </a>
@@ -76,6 +75,29 @@
             </a>
         </figure>
     </div>
+    <div id="slider2" role="slider"> <!-- esto es algo para accesibilidad, que el navegador sepa que es un slider -->
+        <!--
+        rel="follow" que el bot de google entre en los links o no dejarle.
+        rel="no-follow" -->
+
+        <figure>
+            <a class="foto1" href="favicon-32x32.png" role="no-follow" target="_blank" download >
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ibiza.jpg">
+            </a>
+            <a class="foto3" href="favicon-32x32.png" role="no-follow" target="_blank" download >
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/taj-mahal_copy.jpg">
+            </a>
+        </figure>
+        <ul class="css-slider">
+            <li><img src="images/slide1.jpg" alt="1"></li>
+            <li><img src="images/slide2.jpg" alt="2"></li>
+            <li><img src="images/slide3.jpg" alt="3"></li>
+            <li><img src="images/slide4.jpg" alt="4"></li>
+            <li><img src="images/slide5.jpg" alt="5"></li>
+        </ul>
+    </div>
+
+
 
     <main class="clearfix">
         <section id="Presentacion">
@@ -169,17 +191,31 @@
 
 
 <footer>
+
     <div>
         <p id="footer">Pagina web creada en mi <a href="http://localhost" target="_blank"> casa &copy;&circledR;</a></p>
     </div>
 
+    <ul class="pie">
+        <li>
+            <a href="https://www.youtube.com/" class="youtube" target="_blank"></a>
+        </li>
+        <li>
+            <a href="https://twitter.com" class="twitter" target="_blank"></a>
+        </li>
+        <li>
+            <a href="https://es-es.facebook.com" class="facebook" target="_blank"></a>
+        </li>
+    </ul>
+    <svg height="40" width="110">
+        <text x="15" y="30" fill="black">Fotografía</text>
+        <circle cx="30" cy="25" r="4.7" stroke="black" stroke-width="1.5" fill="fill:black" />
+        <circle cx="48" cy="25" r="4.7" stroke="black" stroke-width="1.5" fill="fill:black" />
+        <animate attributeName="fill" attributeType="CSS" from="black" to="red" begin="0s" dur="2s" fill="freeze" />
+        <animate attributeName="fill" attributeType="CSS" from="red" to="black" begin="2s" dur="4s" fill="freeze" />
+        <animate attributeName="fill" attributeType="CSS" from="black" to="white" begin="4s" dur="6s" fill="freeze" repeatCount="indefinite"/>
 
-        <ul>
-            <div id="social">
-                <a class="twitter" href="https://www.twitter.com" target="_blank" alt="Twitter"></a>
-                <a class="facebook" href="https://www.facebook.com" target="_blank" alt="Facebook"></a>
-            </div>
-        </ul>
+    </svg>
 
     <!-- puedo tener varios footer -->
 

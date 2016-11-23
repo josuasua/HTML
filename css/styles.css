@@ -187,6 +187,8 @@ nav ul {
     100%{left: -400%;}
 }
 
+
+
 div#slider figure img{
     width:calc(100%/5);
     float: left;
@@ -203,6 +205,99 @@ div#slider figure{
 div#slider{
     overflow-x: hidden;
 }
+
+div#slider2{
+
+    width : 100%;
+    max-width:100%;
+    left:0;
+    margin:0;
+    overflow-x: hidden;
+
+
+}
+.foto1 {
+    top:800px;
+    width: 100%;
+    z-index: 0;
+    position:absolute;
+    transition: 0.2s;
+    animation: move 20s linear infinite alternate;
+}
+.foto3 {
+    top:800px;
+    width: 100%;
+    z-index: 1;
+    position:absolute;
+}
+
+@keyframes move {
+    from { z-index: 0; transform: scale(1); }
+    to { z-index: 2; transform: scale(1); }
+}
+
+@-webkit-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+@-moz-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+@-ms-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+@-o-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+@-khtml-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+
+@keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+
+.css-slider{
+    position: absolute; /* All slides will have absolute position */
+
+    width: 100%; /* Make it responsive */
+    padding: 0; margin: 0;
+    list-style-type: none;
+    float:left;
+    /*overflow: hidden; /* In case images will have wrong aspect ratio */
+}
+
+.css-slider li img{width: 100%;} /* And make images responsive as well */
+
+.css-slider li{
+    position: absolute; top:0; right: 0; bottom: 0; left: 0; /* Make it fill whole slider container */
+    opacity: 0; /* Hide it */
+    animation: css-slider 20s infinite; /* Use keyframe animation from above */
+}
+
+
+
+.css-slider li:nth-child(1){-webkit-animation-delay: 0s;}
+.css-slider li:nth-child(2){-webkit-animation-delay: 4s;}
+.css-slider li:nth-child(3){-webkit-animation-delay: 8s;}
+.css-slider li:nth-child(4){-webkit-animation-delay: 12s;}
+.css-slider li:nth-child(5){-webkit-animation-delay: 16s;}
+
+
+
+
+
 
 ul{
 
@@ -231,9 +326,6 @@ footer{
     text-align: center;
 
 }
-
-
-
 
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
