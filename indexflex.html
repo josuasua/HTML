@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Josu">
@@ -9,75 +9,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!-- Importante colocar el viewport, para ajustar vistas-->
     <title>Primera p&aacute;gina web creado para el FrontEnd</title>
-    <link href="css/styles.css?v1.0" rel ="stylesheet" type="text/css"/>
+    <link href="css/styleflex.css?v1.0" rel ="stylesheet" type="text/css"/>
 
     <!-- http://realfavicongenerator.net/ para generar favicons-->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="/manifest.json">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
-
-    <!-- el type en algunas ocasiones ya no es necesario -->
-    <!-- Si por ejemplo queremos imprimir algo en concreto con un estilo diferente, podremos usar algo como
-    <link rel="styleheet" href="print.css"/> -->
 </head>
 <body>
-<!-- para evitar descuadres, barras horizontales que son horribles y deben evitarse, algunas veces usan <div>
- Realmente deberemos usar .... -->
-<div id="wrapper">
     <header>
         <!-- puedo tener varios headers, encabezado de la pagina -->
-        <h1>
-            <!-- Es el texto que identifica la pagina. un unico h1, se pueden tener varios h2 y h3.
-            No se puede tener h2 sin h1, ni h3 sin h1 o h2-->
-            Zaratustra
-        </h1>
+        <nav> <!-- si pongo role al nav paraaccesibilidad, indico al navegador sepa que es un menu -->
+            <!--Contenedor del menu -->
+            <ul class="clearfix">
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#Presentacion">Presentacion</a></li>
+                <li><a href="#Productos">Productos</a></li>
+                <li><a href="#Localizacion">Localizacion</a></li>
+                <li><a href="#Contacto">Contacto</a></li>
+                <li><a href="#AcercaDe">Acerca de</a></li>
+                <!-- la # es el ancla,
+                    navegacion por ancha es saltar al punto donde se encuentra presentacion-->
+                <li></li>
+            </ul>
+        </nav>
     </header>
     <aside>
         <!--menu de barra lateral, se puede meter el nav aqui dentro.-->
     </aside>
-    <nav> <!-- si pongo role al nav paraaccesibilidad, indico al navegador sepa que es un menu -->
-        <!--Contenedor del menu -->
-        <ul class="clearfix">
-            <li><a href="#Presentacion">Presentacion</a></li>
-            <li><a href="#Productos">Productos</a></li>
-            <li><a href="#Localizacion">Localizacion</a></li>
-            <li><a href="#Contacto">Contacto</a></li>
-            <li><a href="#AcercaDe">Acerca de</a></li>
-            <!-- la # es el ancla,
-                navegacion por ancha es saltar al punto donde se encuentra presentacion-->
-            <li></li>
-        </ul>
-    </nav>
-
-    <div id="slider" role="slider" aria-valuemax="5" aria-valuemin="1" aria-valuenow="1"> <!-- esto es algo para accesibilidad, que el navegador sepa que es un slider -->
-        <!--
-        rel="follow" que el bot de google entre en los links o no dejarle.
-        rel="nofollow" -->
-
-        <figure>
-            <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ibiza.jpg" alt="Ibiza">
-            </a>
-            <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/austin-fireworks.jpg" alt="Fireworks">
-            </a>
-            <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/taj-mahal_copy.jpg" alt="Taj Mahal">
-            </a>
-            <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ankor-wat.jpg" alt="Ankor">
-            </a>
-            <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ibiza.jpg" alt="Ibiza">
-            </a>
-        </figure>
-    </div>
 
     <div class="tab">
+        <div id="slider" role="slider" aria-valuemax="5" aria-valuemin="1" aria-valuenow="1"> <!-- esto es algo para accesibilidad, que el navegador sepa que es un slider -->
+            <!--
+            rel="follow" que el bot de google entre en los links o no dejarle.
+            rel="no-follow" -->
 
+            <figure>
+                <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ibiza.jpg" alt="Ibiza">
+                </a>
+                <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/austin-fireworks.jpg" alt="Fireworks">
+                </a>
+                <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/taj-mahal_copy.jpg" alt="Taj Mahal">
+                </a>
+                <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ankor-wat.jpg" alt="Ankor">
+                </a>
+                <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ibiza.jpg" alt="Ibiza">
+                </a>
+            </figure>
+        </div>
         <main>
             <section id="Presentacion">
                 <header><h2>Presentacion</h2></header>
@@ -156,31 +143,6 @@
 
         </main>
     </div>
-</div>
 
-
-
-<!--
-<footer>
-
-    <div>
-        <p id="footer">Pagina web creada en mi <a href="http://localhost" target="_blank"> casa &copy;&circledR;</a></p>
-    </div>
-
-    <svg height="40" width="110">
-        <text x="15" y="30" fill="black">Fotografía</text>
-        <circle cx="30" cy="25" r="4.7" stroke="black" stroke-width="1.5" fill="fill:black" />
-        <circle cx="48" cy="25" r="4.7" stroke="black" stroke-width="1.5" fill="fill:black" />
-        <animate attributeName="fill" attributeType="CSS" from="black" to="red" begin="0s" dur="2s" />
-        <animate attributeName="fill" attributeType="CSS" from="red" to="black" begin="2s" dur="4s" />
-        <animate attributeName="fill" attributeType="CSS" from="black" to="white" begin="4s" dur="6s" fill="freeze" repeatCount="indefinite"/>
-
-    </svg>
-
-    <!-- puedo tener varios footer -->
-
-    <!-- target blank me abre la url en una nueva pestaña -->
-    <!-- no tienen significado semantico, a, span, img, p, .... --> <!--
-</footer> -->
 </body>
 </html>

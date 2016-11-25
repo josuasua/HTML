@@ -2,6 +2,12 @@ HTML de iniciacion sin ayuda de bootstrap y herramientas similares
 
 iconfinder.com
 
+http://pingendo.com/
+
+http://realfavicongenerator.net/ para generar favicones
+
+https://gtmetrix.com/ analiza paginas web
+
 https://www.amcharts.com/
 
 http://vedmant.com/image-slider-on-pure-css3/
@@ -10,3 +16,24 @@ http://urbaninfluence.com/2015/05/make-a-background-image-slider-with-css-keyfra
 
 http://animateyourhtml5.appspot.com/
 
+chromestatus.com para comprobar ultimas actualizaciones e implementaciones, asi como cosas a los que ya no se da soporte.
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-appearance
+
+cdn gratuito Cloudflare https://www.cloudflare.com/es/
+
+hosting gratuito  hostinger https://www.hostinger.es/hosting-gratis
+
+unity.com c# y/o javascript (junto a otros) para videojuegos en moviles y pcs
+
+planetarium: html, svg, css y algo de javascript  -  https://github.com/littleworkshop/planetarium
+
+google charts
+
+flexbox:
+
+Si usamos flexBox no podemos usar flotantes.
+
+no usaremos tablas, usaremos grids layout
+
+http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF

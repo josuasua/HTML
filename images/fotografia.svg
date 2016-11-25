@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+        "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+
+<svg height="40" width="110">
+    <text x="15" y="30" fill="black">Fotografía</text>
+    <circle cx="30" cy="25" r="4.7" stroke="black" stroke-width="1.5" fill="fill:black" />
+    <circle cx="48" cy="25" r="4.7" stroke="black" stroke-width="1.5" fill="fill:black" />
+    <animate attributeName="fill" attributeType="CSS" from="black" to="red" begin="0s" dur="2s" fill="freeze" />
+    <animate attributeName="fill" attributeType="CSS" from="red" to="black" begin="2s" dur="4s" fill="freeze" />
+    <animate attributeName="fill" attributeType="CSS" from="black" to="white" begin="4s" dur="6s" fill="freeze" />
+</svg>

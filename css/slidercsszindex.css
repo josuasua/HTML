@@ -44,9 +44,13 @@ q:before, q:after {
 }
 /***** ****/
 
+.tab section {
+    display: none;
+}
 
-
-
+.tab section:target {
+    display: block;
+}
 
 div#slider2{
 
@@ -54,10 +58,7 @@ div#slider2{
     max-width:100%;
     left:0;
     margin:0;
-    float:left;
     overflow-x: hidden;
-
-
 }
 
 @-webkit-keyframes css-slider {

@@ -16,7 +16,7 @@
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="/manifest.json">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
 
     <!-- el type en algunas ocasiones ya no es necesario -->
@@ -24,6 +24,7 @@
     <link rel="styleheet" href="print.css"/> -->
 </head>
 <body>
+
 <!-- para evitar descuadres, barras horizontales que son horribles y deben evitarse, algunas veces usan <div>
  Realmente deberemos usar .... -->
 <div id="wrapper">
@@ -35,9 +36,6 @@
             Zaratustra
         </h1>
     </header>
-    <aside>
-        <!--menu de barra lateral, se puede meter el nav aqui dentro.-->
-    </aside>
     <nav> <!-- si pongo role al nav paraaccesibilidad, indico al navegador sepa que es un menu -->
         <!--Contenedor del menu -->
         <ul class="clearfix">
@@ -51,31 +49,19 @@
             <li></li>
         </ul>
     </nav>
-
-    <div id="slider" role="slider" aria-valuemax="5" aria-valuemin="1" aria-valuenow="1"> <!-- esto es algo para accesibilidad, que el navegador sepa que es un slider -->
-        <!--
-        rel="follow" que el bot de google entre en los links o no dejarle.
-        rel="nofollow" -->
-
+    <aside>
+        <!--menu de barra lateral, se puede meter el nav aqui dentro.-->
+    </aside>
+    <div id="slider3" role="slider">
         <figure>
-            <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ibiza.jpg" alt="Ibiza">
+            <a class="foto1" href="favicon-32x32.png" rel="nofollow" target="_blank" download >
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ibiza.jpg">
             </a>
-            <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/austin-fireworks.jpg" alt="Fireworks">
-            </a>
-            <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/taj-mahal_copy.jpg" alt="Taj Mahal">
-            </a>
-            <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ankor-wat.jpg" alt="Ankor">
-            </a>
-            <a href="favicon-32x32.png" rel="nofollow" target="_blank" download >
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ibiza.jpg" alt="Ibiza">
+            <a class="foto3" href="favicon-32x32.png" rel="nofollow" target="_blank" download >
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/taj-mahal_copy.jpg">
             </a>
         </figure>
     </div>
-
     <div class="tab">
 
         <main>
@@ -157,30 +143,5 @@
         </main>
     </div>
 </div>
-
-
-
-<!--
-<footer>
-
-    <div>
-        <p id="footer">Pagina web creada en mi <a href="http://localhost" target="_blank"> casa &copy;&circledR;</a></p>
-    </div>
-
-    <svg height="40" width="110">
-        <text x="15" y="30" fill="black">Fotografía</text>
-        <circle cx="30" cy="25" r="4.7" stroke="black" stroke-width="1.5" fill="fill:black" />
-        <circle cx="48" cy="25" r="4.7" stroke="black" stroke-width="1.5" fill="fill:black" />
-        <animate attributeName="fill" attributeType="CSS" from="black" to="red" begin="0s" dur="2s" />
-        <animate attributeName="fill" attributeType="CSS" from="red" to="black" begin="2s" dur="4s" />
-        <animate attributeName="fill" attributeType="CSS" from="black" to="white" begin="4s" dur="6s" fill="freeze" repeatCount="indefinite"/>
-
-    </svg>
-
-    <!-- puedo tener varios footer -->
-
-    <!-- target blank me abre la url en una nueva pestaña -->
-    <!-- no tienen significado semantico, a, span, img, p, .... --> <!--
-</footer> -->
 </body>
 </html>
