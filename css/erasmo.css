@@ -1,0 +1,247 @@
+      ul.navegacion,
+      ul.pie {
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: black;
+      }
+
+      ul.navegacion {
+        top: 0;
+      }
+
+      ul.pie {
+        bottom: 0;
+      }
+
+      ul.navegacion li,
+      ul.pie li {
+        float: left;
+      }
+
+      ul.navegacion li a,
+      ul.pie li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      ul.navegacion li a:hover:not(.active),
+      ul.pie li a:hover:not(.active) {
+        background-color: #111;
+      }
+
+      ul.navegacion li a.activa,
+      ul.pie li a.activa {
+        background-color: blue;
+      }
+
+      ul.navegacion li.derecha,
+      ul.pie li.derecha {
+        float: right;
+      }
+      /* Add a gray right border to all list items, except the last item (last-child) */
+
+      li {
+        border-right: 1px solid #bbb;
+      }
+
+      li:last-child {
+        border-right: none;
+      }
+      /* Fuentes*/
+
+      * {
+        font-size: 16px;
+        font-family: "Comic Sans MS", cursive, sans-serif
+      }
+
+      h1 {
+        font-size: 300%;
+      }
+
+      h2 {
+        font-size: 200%;
+      }
+
+      h3 {
+        font-size: 120%;
+      }
+      /* Imagenes */
+
+      @-webkit-keyframes slider {}
+
+      @-moz-keyframes slider {}
+
+      @-ms-keyframes slider {}
+
+      @keyframes slider {
+        /* W3 standard */
+        3% {
+          left: 0%;
+        }
+        9.5% {
+          left: -100%;
+        }
+        15.5% {
+          left: -100%;
+        }
+        22% {
+          left: -200%;
+        }
+        28% {
+          left: -200%;
+        }
+        34.5% {
+          left: -300%;
+        }
+        40.5% {
+          left: -300%;
+        }
+        47% {
+          left: -400%;
+        }
+        53% {
+          left: -400%;
+        }
+        59.5% {
+          left: -500%;
+        }
+        65.5% {
+          left: -500%;
+        }
+        72% {
+          left: -600%;
+        }
+        78% {
+          left: -600%;
+        }
+        84.5% {
+          left: -700%;
+        }
+        90.5% {
+          left: -700%;
+        }
+        97% {
+          left: -800%;
+        }
+      }
+
+      div#slider figure img {
+        width: calc(100%/10);
+        float: left;
+      }
+
+      div#slider figure {
+        padding-top: 50px;
+        position: relative;
+        width: 1000%;
+        /*500vw;*/
+        margin: 0;
+        left: 0;
+        animation: 50s slider infinite;
+      }
+
+      #retrato {
+        border-radius: 75%;
+        float: left;
+        position: relative;
+        height: 300px;
+        width: 200px;
+        margin: auto;
+      }
+
+      #retrato img {
+        border-radius: 75%;
+        position: absolute;
+        left: 0;
+        -webkit-transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -o-transition: opacity 1s ease-in-out;
+        transition: opacity 1s ease-in-out;
+      }
+
+      #retrato img.top:hover {
+        opacity: 0.0;
+      }
+
+      section {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        position: relative;
+        margin-left: 30px;
+        margin-right: 30px;
+        height: auto;
+      }
+
+      section h1 {
+        height: 50px;
+        width: 50px;
+        float: left;
+      }
+
+      .youtube {
+        height: 21px;
+        width: 19px;
+        background: url(/images/spritessocialmedia.png) no-repeat -856px -185px;
+      }
+
+      .youtube:hover {
+        height: 21px;
+        width: 19px;
+        background: url(/images/spritessocialmedia.png) no-repeat -856px -101px;
+      }
+
+      .twitter {
+        height: 21px;
+        width: 19px;
+        background: url(/images/spritessocialmedia.png) no-repeat -687px -184px;
+      }
+
+      .twitter:hover {
+        height: 21px;
+        width: 19px;
+        background: url(/images/spritessocialmedia.png) no-repeat -687px -100px;
+      }
+
+      .facebook {
+        height: 21px;
+        width: 19px;
+        background: url(/images/spritessocialmedia.png) no-repeat -17px -184px;
+      }
+
+      .facebook:hover {
+        height: 21px;
+        width: 19px;
+        background: url(/images/spritessocialmedia.png) no-repeat -17px -100px;
+      }
+
+      .pie li {
+        height: 49px;
+        width: 49px;
+        display: block;
+      }
+
+      .pie a {
+        padding: 0 0;
+      }
+
+      @media screen and (max-width: 600px) {
+        ul.navegacion li.derecha,
+        ul.navegacion li {
+          float: none;
+          padding: 0 0;
+        }
+        section {
+          padding-top: 180px;
+        }
+        #retrato {
+          float: none;
+        }
+      }

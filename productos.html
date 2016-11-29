@@ -3,8 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de productos</title>
+    <link href="css/producto.css" rel ="stylesheet" type="text/css"/>
 </head>
 <body>
+<header class="item">
+    <h1>Header</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#slider">Slider</a></li>
+            <li><a href="#contenedor-flexible">Productos</a></li>
+            <li><a href="#Localizacion">Localizacion</a></li>
+            <li><a href="#Contacto">Contacto</a></li>
+            <li><a href="#AcercaDe">Acerca de</a></li>
+
+        </ul>
+    </nav>
+</header>
+
+<div class="flex-container">
+    <main id="cuerpomain" class="item">
+
+        <form action="#">
+            <input type="text" name="Buscar"/>
+            <button type="submit" name="buscar" value="clicked">
+                <img src="images/lupa.png" width="32" height="32" alt="submit"/>
+            </button>
+        </form>
+
+        <div id="contenedor-flexible">
+            <div class="grid-cell"><p>Caja1</p>
+                <img src="images/gorro%20mofeta.jpg" alt=""/>
+                <p>La descripcion del producto es muy larga</p>
+                <input type="button" value="Comprame" />
+            </div>
+            <div class="grid-cell"><p>Caja2</p>
+                <img src="images/gorrobuho.jpg" alt=""/>
+                <p>La descripcion del producto es muy larga</p>
+                <input type="button" value="Comprame" />
+            </div>
+            <div class="grid-cell"><p>Caja3</p>
+                <img src="images/gorropulpo.jpg" alt=""/>
+                <p>La descripcion del producto es muy larga</p>
+                <input type="button" value="Comprame" />
+            </div>
+            <div class="grid-cell"><p>Caja4</p>
+                <img src="images/gorroqueso.jpg" alt=""/>
+                <p>La descripcion del producto es muy larga</p>
+                <input type="button" value="Comprame" />
+            </div>
+            <div class="grid-cell"><p>Caja5</p>
+                <img src="images/gorrovikingo.jpg" alt=""/>
+                <p>La descripcion del producto es muy larga</p>
+                <input type="button" value="Comprame" />
+            </div>
+            <div class="grid-cell"><p>Caja6</p>
+                <img src="images/gorroR2D2.jpg" alt=""/>
+                <p>La descripcion del producto es muy larga</p>
+                <input type="button" value="Comprame" />
+            </div>
+            <div class="grid-cell"><p>Caja7</p>
+                <img src="images/gorroaluminio.JPG" alt=""/>
+                <p>La descripcion del producto es muy larga, ideal para pirados conspiranoicos</p>
+                <input type="button" value="Comprame" />
+            </div>
+        </div>
+        <div id="Contacto">
+            Contacto
+        </div>
+        <div id="Localizacion">
+            Localizacion
+        </div>
+        <div id="AcercaDe">
+            Acerca De
+        </div>
+
+    </main>
+
+    <footer class="item">
+        Pie</footer>
+</div>
+
 
 </body>
 </html>
