@@ -11,6 +11,10 @@
 
 header{
     height:100px;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
     background-color:black;
     overflow:hidden;
     text-align:center;
@@ -102,14 +106,17 @@ main>div>div>p{
     font-weight: bold;
     margin: 2px;
     text-align: center;
-    flex: auto;
-    max-width: 24%;
+   /* flex: auto;*/
+    /*max-width: 24%;*/
 }
 
 @media screen and (max-width: 600px) {
 
     header nav{
-        line-height:31px;
+        line-height:20px;
+    }
+    header h1{
+        font-size:30px;
     }
     header ul{
         flex-flow: column wrap;
@@ -123,6 +130,7 @@ main>div>div>p{
 
     header{
         order:0;
+        height: 140px;
     }
 
     #cuerpo{

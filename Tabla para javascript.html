@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de productos</title>
+    <!--<link href="css/productofinal.css" rel ="stylesheet" type="text/css"/>-->
+    <link href="css/tablaParaJavaScript.css" rel ="stylesheet" type="text/css"/>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js" ></script>
+    <script src="js/calcularLetraDNI.js" ></script>
+</head>
+<body>
+<header>
+    <h1>Jugando con tablas</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#alumnos">Alumnos</a></li>
+            <li><a href="#localizacion">Localizacion</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#AcercaDe">Acerca de</a></li>
+
+        </ul>
+    </nav>
+</header>
+<main id="cuerpomain" class="item">
+
+    <section id="alumnos">
+        <header><h2>Alumnos</h2></header>
+        <div>
+            <button class="btn btn-info">Añadir</button>
+            <button class="btn btn-danger">Borrar</button>
+            <span>Total Alumnos: </span>
+        </div>
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" /></th>
+
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>UF41841</th>
+                    <th>UF41842</th>
+                    <th>UF41843</th>
+                    <th>UF41844</th>
+                    <th>UF41845</th>
+                    <th>UF41846</th>
+                    <th>Nota media</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <td colspan="8">Nota Media:</td>
+                <td colspan="3"></td>
+            </tr>
+            </tfoot>
+            <tbody>
+            </tbody>
+        </table>
+    </section>
+    <section id="localizacion">
+        <header><h2>localizacion</h2></header>
+
+    </section>
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">×</span>
+                <h2>Nuevo Alumno</h2>
+            </div>
+            <div class="modal-body">
+
+                    <ul class="flex-outer">
+                        <li>
+                            <label for="dni">DNI</label>
+                            <input type="text" id="dni" placeholder="Introduzca su dni">
+                        </li>
+                        <li>
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" placeholder="Introduzca su nombre">
+                        </li>
+                        <li>
+                            <label for="apellidos">Apellidos</label>
+                            <input type="text" id="apellidos" placeholder="Introduzca sus apellidos">
+                        </li>
+                        <li>
+                            <label for="UF41841">UF41841</label>
+                            <input type="text" id="UF41841" placeholder="Introduzca la nota del modulo UF41841">
+                        </li>
+                        <li>
+                            <label for="UF41842">UF41842</label>
+                            <input type="text" id="UF41842" placeholder="Introduzca la nota del modulo UF41842">
+                        </li>
+                        <li>
+                            <label for="UF41843">UF41843</label>
+                            <input type="text" id="UF41843" placeholder="Introduzca la nota del modulo UF41843">
+                        </li>
+                        <li>
+                            <label for="UF41844">UF41844</label>
+                            <input type="text" id="UF41844" placeholder="Introduzca la nota del modulo UF41844">
+                        </li>
+                        <li>
+                            <label for="UF41845">UF41845</label>
+                            <input type="text" id="UF41845" placeholder="Introduzca la nota del modulo UF41845">
+                        </li>
+                        <li>
+                            <label for="UF41846">UF41846</label>
+                            <input type="text" id="UF41846" placeholder="Introduzca la nota del modulo UF41846">
+                        </li>
+
+
+                        <li>
+                            <button type="submit">Submit</button>
+                        </li>
+                    </ul>
+
+            </div>
+            <div class="modal-footer">
+                <h3>Footer de la ventana modal</h3>
+            </div>
+        </div>
+
+    </div>
+
+
+</main>
+
+<footer>
+    <p>Pie</p>
+</footer>
+
+
+</body>
+</html>

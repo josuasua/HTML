@@ -33,10 +33,10 @@ body {
     align-items: center;
 }
 
-.flex-inner {
-    padding: 0 8px;
-    justify-content: space-between;
-}
+/*.flex-inner {*/
+    /*padding: 0 8px;*/
+    /*justify-content: space-between;*/
+/*}*/
 
 .flex-outer > li:not(:last-child) {
     margin-bottom: 20px;

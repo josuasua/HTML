@@ -3,85 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de productos</title>
-    <link href="css/producto.css" rel ="stylesheet" type="text/css"/>
+    <link href="css/productofinal.css" rel ="stylesheet" type="text/css"/>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js" ></script>
+    <script src="js/main.js" ></script>
 </head>
 <body>
-<header class="item">
-    <h1>Header</h1>
-    <nav>
-        <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#slider">Slider</a></li>
-            <li><a href="#contenedor-flexible">Productos</a></li>
-            <li><a href="#Localizacion">Localizacion</a></li>
-            <li><a href="#Contacto">Contacto</a></li>
-            <li><a href="#AcercaDe">Acerca de</a></li>
+    <header>
+        <h1>Tienda de Josu</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#localizacion">Localizacion</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#AcercaDe">Acerca de</a></li>
 
-        </ul>
-    </nav>
-</header>
-
-<div class="flex-container">
+            </ul>
+        </nav>
+    </header>
     <main id="cuerpomain" class="item">
+        <div id="slider">
 
-        <form action="#">
-            <input type="text" name="Buscar"/>
-            <button type="submit" name="buscar" value="clicked">
-                <img src="images/lupa.png" width="32" height="32" alt="submit"/>
-            </button>
-        </form>
+        </div>
+        <section id="presentacion">
+            <header><h2>Presentacion</h2></header>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula mi ac ullamcorper laoreet. Morbi eget bibendum ante. Nullam vehicula nisl et est lacinia, ut finibus sem varius. Suspendisse quis consequat augue. Ut hendrerit vel purus vel auctor. Vestibulum pellentesque at est quis placerat. Nunc erat urna, efficitur id mauris iaculis, condimentum sodales elit. Sed ac massa non nibh porta feugiat. Sed at odio commodo, scelerisque quam eu, viverra nisi. Proin nisl eros, feugiat ut sem eu, suscipit vestibulum enim. Integer nec imperdiet tortor. Aenean ac magna sit amet mi varius porta ac ac mauris. Nam sed blandit risus.
 
-        <div id="contenedor-flexible">
-            <div class="grid-cell"><p>Caja1</p>
-                <img src="images/gorro%20mofeta.jpg" alt=""/>
-                <p>La descripcion del producto es muy larga</p>
-                <input type="button" value="Comprame" />
-            </div>
-            <div class="grid-cell"><p>Caja2</p>
-                <img src="images/gorrobuho.jpg" alt=""/>
-                <p>La descripcion del producto es muy larga</p>
-                <input type="button" value="Comprame" />
-            </div>
-            <div class="grid-cell"><p>Caja3</p>
-                <img src="images/gorropulpo.jpg" alt=""/>
-                <p>La descripcion del producto es muy larga</p>
-                <input type="button" value="Comprame" />
-            </div>
-            <div class="grid-cell"><p>Caja4</p>
-                <img src="images/gorroqueso.jpg" alt=""/>
-                <p>La descripcion del producto es muy larga</p>
-                <input type="button" value="Comprame" />
-            </div>
-            <div class="grid-cell"><p>Caja5</p>
-                <img src="images/gorrovikingo.jpg" alt=""/>
-                <p>La descripcion del producto es muy larga</p>
-                <input type="button" value="Comprame" />
-            </div>
-            <div class="grid-cell"><p>Caja6</p>
-                <img src="images/gorroR2D2.jpg" alt=""/>
-                <p>La descripcion del producto es muy larga</p>
-                <input type="button" value="Comprame" />
-            </div>
-            <div class="grid-cell"><p>Caja7</p>
-                <img src="images/gorroaluminio.JPG" alt=""/>
-                <p>La descripcion del producto es muy larga, ideal para pirados conspiranoicos</p>
-                <input type="button" value="Comprame" />
-            </div>
-        </div>
-        <div id="Contacto">
-            Contacto
-        </div>
-        <div id="Localizacion">
-            Localizacion
-        </div>
-        <div id="AcercaDe">
-            Acerca De
-        </div>
+                Aliquam erat volutpat. Donec ultricies nisl quis urna pulvinar mollis. Pellentesque fermentum dui et mollis pharetra. Suspendisse potenti. Proin at nulla diam. Suspendisse vel urna eros. Fusce lacinia pretium metus nec fermentum. Praesent id convallis lacus. Donec lobortis dolor et lacus hendrerit sollicitudin. Cras nec ante lacus. Nam nisi lorem, dictum id massa ut, dignissim tristique sem. Aenean quis massa in felis placerat ornare. Quisque non tellus ullamcorper est rutrum varius non sed magna.
+
+                Nullam pretium quam eu velit imperdiet, id lacinia velit hendrerit. Mauris in dui sollicitudin, pellentesque risus quis, faucibus mi. Fusce porta aliquet dolor ac scelerisque. Sed rutrum odio vel mi dignissim, fringilla molestie dolor consequat. Ut eu nunc laoreet, hendrerit lectus non, dictum turpis. Fusce pretium ipsum vel dignissim aliquam. Suspendisse id eros eget lectus aliquet elementum. Pellentesque convallis diam sit amet aliquet iaculis. Vestibulum vitae pellentesque nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec placerat tortor ac velit tincidunt, quis suscipit metus mattis. Nulla ut nulla luctus, lacinia lectus a, tincidunt elit. Sed eget pharetra diam. Aliquam quis euismod justo, id scelerisque est. Quisque suscipit, ex in pellentesque tincidunt, ante est laoreet erat, et porttitor ipsum nisl ac tortor. Phasellus accumsan molestie ante, vitae fringilla quam lobortis eu.
+
+                Etiam dictum mollis dolor quis egestas. Nullam sagittis dolor ut arcu rutrum, nec cursus nisi maximus. Nullam eget tellus ac lorem fermentum dapibus. Praesent aliquet felis nec blandit commodo. Sed ornare lorem a justo sodales, non pellentesque justo vestibulum. In in laoreet dolor. Praesent vestibulum felis ultrices ipsum congue facilisis. Quisque malesuada ut libero eget semper. Nulla laoreet, leo vitae dapibus feugiat, eros ex euismod velit, et aliquet arcu nisi ac orci. Fusce ex est, sollicitudin at scelerisque quis, faucibus ac ante. Ut vel pharetra neque. Nullam tristique luctus cursus. Pellentesque non ipsum volutpat, fringilla enim a, laoreet nisl. Ut convallis maximus blandit.
+
+                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        </section>
+
+        <section id="productos">
+            <header><h2>productos</h2></header>
+            <input type="text" name="buscar" id="buscar" placeholder="Introduzca texto para realizar la busqueda"/>
+            <a href="#" class="btn">Buscar</a>
+            <article>
+                <section>
+                    <header><h3>Gorro de mofeta</h3></header>
+                    <div>
+                        <img src="images/gorro%20mofeta.jpg" alt=""/>
+                        <p>La descripcion del producto es muy larga</p>
+                    </div>
+                    <p><a class="btn" href="#">Comprame!</a></p>
+                </section>
+                <section>
+                    <header><h3>Gorro de buho</h3></header>
+                    <div>
+                        <img src="images/gorrobuho.jpg" alt=""/>
+                        <p>La descripcion del producto es muy larga</p>
+                    </div>
+                    <p><a class="btn" href="#">Comprame!</a></p>
+                </section>
+                <section>
+                    <header><h3>Gorro de pulpo</h3></header>
+                    <div>
+                        <img src="images/gorropulpo.jpg" alt=""/>
+                        <p>La descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy larga</p>
+                    </div>
+                    <p><a class="btn" href="#">Comprame!</a></p>
+                </section>
+                <section>
+                    <header><h3>Gorro de queso</h3></header>
+                    <div>
+                        <img src="images/gorroqueso.jpg" alt=""/>
+                        <p>La descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy larga</p>
+                    </div>
+                    <p><a class="btn" href="#">Comprame!</a></p>
+                </section>
+                <section>
+                    <header><h3>Gorro de vicky el vikingo</h3></header>
+                    <div>
+                        <img src="images/gorrovikingo.jpg" alt=""/>
+                        <p>La descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy larga</p>
+                    </div>
+                    <p><a class="btn" href="#">Comprame!</a></p>
+                </section>
+                <section>
+                    <header><h3>Gorro de R2D2</h3></header>
+                    <div>
+                        <img src="images/gorroR2D2.jpg" alt=""/>
+                        <p>La descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy larga</p>
+                    </div>
+                    <p><a class="btn" href="#">Comprame!</a></p>
+                </section>
+                <section>
+                    <header><h3>Gorro de aluminio</h3></header>
+                    <div>
+                        <img src="images/gorroaluminio.JPG" alt=""/>
+                        <p>La descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy largaLa descripcion del producto es muy larga</p>
+                    </div>
+                    <p><a class="btn" href="#">Comprame!</a></p>
+                </section>
+            </article>
+        </section>
+        <section id="contacto">
+            <header><h2>contacto</h2></header>
+            <article>
+            <form>
+                <ul>
+                    <li>
+                        <label for="first-name">Nombre</label>
+                        <input type="text" id="first-name" placeholder="Introduzca su nombre">
+                    </li>
+                    <li>
+                        <label for="last-name">Apellidos</label>
+                        <input type="text" id="last-name" placeholder="Introduzca sus apellidos">
+                    </li>
+                    <li>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Introduzca su correo electrónico a modo contacto">
+                    </li>
+                    <li>
+                        <label for="phone">Telefono</label>
+                        <input type="tel" id="phone" placeholder="Introduzca un número de telefono a modo contacto">
+                    </li>
+                    <li>
+                        <label for="message">Mensaje</label>
+                        <textarea rows="6" id="message" placeholder="Introduzca su mensaje aqui"></textarea>
+                    </li>
+                        <p><a class="btn" href="#">Enviar</a></p>
+                </ul>
+            </form>
+            </article>
+        </section>
+        <section id="localizacion">
+            <header><h2>localizacion</h2></header>
+        </section>
 
     </main>
 
-    <footer class="item">
-        Pie</footer>
+    <footer>
+        <p>Pie</p>
+    </footer>
 </div>
 
 

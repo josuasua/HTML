@@ -34,6 +34,36 @@ flexbox:
 
 Si usamos flexBox no podemos usar flotantes.
 
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
 no usaremos tablas, usaremos grids layout
 
 http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF
+
+
+
+-------------------------------------------------------------------------
+
+Javascript
+
+jquery esta en v.3
+
+valido incluso para versiones viejas de IE
+
+https://html5boilerplate.com/
+
+EN javascript hay 4 tipos de datos:
+
+texto, numero, booleano, array.
+
+Tambien acepta objetos, que son arrays tipo dato(coleccion)
+
+tipo de dato regex y date
+
+GWT transforma java a javascript
+
+parents()!= parent()
+children()!= child()
+
+usaremos deployd para generar la bbdd y sus servicios web
+
