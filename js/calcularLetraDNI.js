@@ -1,6 +1,7 @@
 /**
  * Created by Josu on 30/11/2016.
  */
+const URL ="http://localhost:2403/alumnos";
 var dnis = new Array();
 var nombres = new Array();
 var apellidos = new Array();
@@ -30,38 +31,33 @@ nUF1844['16087431N'] = 7;
 nUF1845['16087431N'] = 9;
 nUF1846['16087431N'] = 8;
 jQuery(document).ready(function($) {
+    var promesaCarga = $.ajax(URL, {type:"GET"});
+    promesaCarga.success(function (data) {
+        for (var i = 0; i < data.length; i++){
+            var id = data[i].id;
+            var dni = data[i].dni;
+            var nombre = data[i].nombre;
+            var apellido = data[i].apellidos;
+            var notas = new Array();
+            notas['UF1841'] = data[i].notas.UF1841;
+            notas['UF1842'] = data[i].notas["UF1842"];
+            notas['UF1843'] = data[i].notas["UF1843"];
+            notas['UF1844'] = data[i].notas["UF1844"];
+            notas['UF1845'] = data[i].notas["UF1845"];
+            notas['UF1846'] = data[i].notas["UF1846"];
 
-    function cargarAlumnos() {
-        for(var i = 0; i< dnis.length; i++){
-            var dni = dnis[i];
-            var nombre = nombres[dni];
-            var apellido = apellidos[dni];
-            insertTabla(dni,nombre, apellido,[nUF1841[dni],nUF1842[dni],nUF1843[dni],nUF1844[dni],nUF1845[dni],nUF1846[dni]])
-            // var html_text  = "<tr>"+
-            //     "<td><input type='checkbox' value='" + dni + "'></td>" +
-            //     "<td>"+nombre+"</td>" +
-            //     "<td>"+apellido+"</td>" +
-            //     "<td>"+nUF1841[dni]+"</td>" +
-            //     "<td>"+nUF1842[dni]+"</td>" +
-            //     "<td>"+nUF1843[dni]+"</td>" +
-            //     "<td>"+nUF1844[dni]+"</td>" +
-            //     "<td>"+nUF1845[dni]+"</td>" +
-            //     "<td>"+nUF1846[dni]+"</td>" +
-            //     "<td>"+CalcularMedia([nUF1841[dni],nUF1842[dni], nUF1843[dni], nUF1844[dni], nUF1845[dni], nUF1846[dni]]).toFixed(2)+"</td>" +
-            //     "<td><button>Editar</button></td>" + // toFixed se pone al final, convierte calcularMedia en un String
-            //
-            //     "</tr>"
-            // $('#alumnos tbody').append(html_text);
+            insertTabla(id, dni, nombre, apellido, notas);
+
         }
+        calcularNAlumnos(data.length);
+    });
 
-        calcularNAlumnos();
-    }
-    cargarAlumnos();
-    function calcularNAlumnos() {
+    function calcularNAlumnos(len) {
         //$('#alumnos div span').append(nombres.length); //asi sacamos al final en el append el numero total del array
-        $('#alumnos div span').text("Total Alumnos: "+dnis.length);
+        $('#alumnos div span').text("Total Alumnos: " + len);
     }
     function borrarAlumnoVista() {
+        alert("Deberia borrar de la tabla el alumno");
         $("#alumnos tbody tr input:checked").parents("tr").remove();
     }
     // function tracear(){
@@ -105,7 +101,7 @@ jQuery(document).ready(function($) {
 
     });
 
-    function cogerDNI(){
+    function cogerID(){
 
         //alert($("#alumnos tbody input:checked").val()); //un unico valor, mostraria el primero marcado
         var codigo = $("#alumnos tbody input:checked").each(function(e){
@@ -141,7 +137,7 @@ jQuery(document).ready(function($) {
 
     });
     $("#alumnos button.btn-danger").on("click", function (e) {
-        var  codigo=cogerDNI();//recoger DNI de la vista
+        var  codigo=cogerID();//recoger DNI de la vista
         borrarAlumnoVista();//borrar de la vista
         calcularNAlumnos();
     });
@@ -189,9 +185,9 @@ jQuery(document).ready(function($) {
             //guardar BBDD
             addAlumno(dni, nombre, apellido,[notaUF1841,notaUF1842,notaUF1843,notaUF1844,notaUF1845,notaUF1846]);
             //añadir alumno a tabla vista
-            insertTabla(dni, nombre, apellido,[notaUF1841,notaUF1842,notaUF1843,notaUF1844,notaUF1845,notaUF1846]);
+            //insertTabla(id, dni, nombre, apellido,[notaUF1841,notaUF1842,notaUF1843,notaUF1844,notaUF1845,notaUF1846]);
             //recalcular alumnos
-            calcularNAlumnos();
+            //calcularNAlumnos();
             //cerrar la ventana modal
             $("#myModal").css("display", "none");
         }else{
@@ -208,16 +204,31 @@ function calcularLetra(numero){
     var letraCalculada = letras[numero % 23];
     return letraCalculada;
 }
-function addAlumno(dni,nombre, apellido, notas) {
-    dnis.push(dni);
-    nombres[dni]=nombre;
-    apellidos.push(dni,apellido);
-    nUF1841.push(dni,notas[0]);
-    nUF1842.push(dni,notas[1]);
-    nUF1843.push(dni,notas[2]);
-    nUF1844.push(dni,notas[3]);
-    nUF1845.push(dni,notas[4]);
-    nUF1846.push(dni,notas[5]);
+function addAlumno( dni, nombre, apellido, notas) {
+
+    /*
+    console.log(URL);
+    console.log(JSON.stringify({
+        dni: dni,
+        nombre:nombre,
+        apellidos:apellido,
+        notas:{"UF1841":notas[0],"UF1842":notas[1],"UF1843":notas[2],"UF1844":notas[3],"UF1845":notas[4],"UF1846":notas[5]}}));
+        */
+    var promesaInsertar = $.ajax(URL,
+        {type:"POST",
+            //contentType: "application/json",
+            data: {
+                dni: dni,
+                nombre:nombre,
+                apellidos:apellido,
+                notas:{"UF1841":notas[0],"UF1842":notas[1],"UF1843":notas[2],"UF1844":notas[3],"UF1845":notas[4],"UF1846":notas[5]}
+            }
+        });
+    promesaInsertar.success(function (e) {
+
+    }).error(function(xhr) {
+        alert(xhr.responseText);
+    });
 
 }
 function CalcularMedia(numeros) {
@@ -230,19 +241,22 @@ function CalcularMedia(numeros) {
     media = media/len;
     return media;
 }
+function calcularMediaTotal() {
 
-function insertTabla(dni, nombre, apellido, notas) {
+}
+
+function insertTabla(id, dni, nombre, apellido, notas) {
     var html_text  = "<tr>"+
-        "<td><input type='checkbox' value='" + dni + "'></td>" +
+        "<td><input type='checkbox' value='" + id + "'></td>" +
         "<td>"+nombre+"</td>" +
         "<td>"+apellido+"</td>" +
-        "<td>"+notas[0]+"</td>" +
-        "<td>"+notas[1]+"</td>" +
-        "<td>"+notas[2]+"</td>" +
-        "<td>"+notas[3]+"</td>" +
-        "<td>"+notas[4]+"</td>" +
-        "<td>"+notas[5]+"</td>" +
-        "<td>"+CalcularMedia([notas[0],notas[1], notas[2], notas[3], notas[4], notas[5]]).toFixed(2)+"</td>" +
+        "<td>"+notas['UF1841']+"</td>" +
+        "<td>"+notas['UF1842']+"</td>" +
+        "<td>"+notas['UF1843']+"</td>" +
+        "<td>"+notas['UF1844']+"</td>" +
+        "<td>"+notas['UF1845']+"</td>" +
+        "<td>"+notas['UF1846']+"</td>" +
+        "<td>"+CalcularMedia([notas['UF1841'],notas['UF1842'], notas['UF1843'], notas['UF1844'], notas['UF1845'], notas['UF1846']]).toFixed(2)+"</td>" +
         "<td><button>Editar</button></td>" + // toFixed se pone al final, convierte calcularMedia en un String
 
         "</tr>"
@@ -250,37 +264,29 @@ function insertTabla(dni, nombre, apellido, notas) {
 }
 
 function borrarDDBBAlumno(codigo){
-    var i=0;
-    var len = dnis.length;
-    var found = false;
-    var pos = -1;
-    while(i<len && found == false){
-        if(dnis[i]==codigo){
-            found =true;
-            pos = i;
-        }
-        i++;
-    }
-    if (pos!=-1){
-        dnis.splice(pos,1);
-        nombres[codigo] = null;
-        apellidos[codigo] = null;
-        //......
-    }
+    var promesaBorrar = $.ajax(URL+"/"+codigo, {type:"DELETE"});
 
 }
 function comprobarDNI(dni) {
-    //comprobaremos que tiene una estructura correcta, bien formado antes de comprobar nada.
-    var len = 9;
+    //comprobaremos que tiene una estructura correcta, bien formado antes de comprobar nada. Asi estaría bien hecho.
+    var regex =/^\d{8}[a-zA-Z]$/;
     var bool = false;
-    if (len == dni.length){
-        var numero = dni.substring(0,dni.length-1);
-        var patt1 = /[a-z]/i;
-        var letra = dni.match(patt1);
-        if (calcularLetra(parseInt(numero,10))==letra){
-            bool = true;
-        }
+    if(regex.test(dni)){
+        //Se cumple, asi que trabajamos con ello, mas corto y rapido
+        bool = true;
     }
+
+    //a mi manera
+    // var len = 9;
+    // var bool = false;
+    // if (len == dni.length){
+    //     var numero = dni.substring(0,dni.length-1);
+    //     var patt1 = /[a-z]/i;
+    //     var letra = dni.match(patt1);
+    //     if (calcularLetra(parseInt(numero,10))==letra){
+    //         bool = true;
+    //     }
+    // }
     return bool;
 }
 function comprobarTamano(nombre,tamano){
