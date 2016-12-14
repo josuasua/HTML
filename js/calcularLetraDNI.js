@@ -2,6 +2,7 @@
  * Created by Josu on 30/11/2016.
  */
 const URL ="http://localhost:2403/alumnos";
+var numeroalumnos = 0;
 // var dnis = new Array();
 // var nombres = new Array();
 // var apellidos = new Array();
@@ -80,9 +81,10 @@ jQuery(document).ready(function($) {
                 notas['UF1846'] = "0";
             }
 
-            insertTabla(id, dni, nombre, apellido, notas);
+            insertTabla(id, nombre, apellido, notas);
         }
-        calcularNAlumnos(data.length);
+        numeroalumnos=data.length;
+        calcularNAlumnos(numeroalumnos);
 
 
     }
@@ -95,6 +97,7 @@ jQuery(document).ready(function($) {
     function borrarAlumnoVista() {
         console.log("Deberia borrar de la tabla el alumno");
         $("#alumnos tbody tr input:checked").parents("tr").remove();
+
     }
 
     // function tracear(){
@@ -147,9 +150,9 @@ jQuery(document).ready(function($) {
         var codigo = $("#alumnos tbody input:checked").each(function(e){
             //console.log($(this).val()); //Aqui muestra todos los marcados
             borrarDDBBAlumno($(this).val()); //Borrar de la BBDD
+            numeroalumnos --;
         });
 
-        return codigo;
     }
 
     $("a[href='s1'],a[href='#s2']").click(function (e) {
@@ -179,9 +182,9 @@ jQuery(document).ready(function($) {
     });
 
     $("#alumnos button.btn-danger").on("click", function (e) {
-        var  codigo=cogerID();//recoger DNI de la vista
+        cogerID();//recoger DNI de la vista
         borrarAlumnoVista();//borrar de la vista
-        calcularNAlumnos();
+        calcularNAlumnos(numeroalumnos);
     });
 
     $("#myModal .close, #myModal button.btn-cancelar").on("click", function (e) {
@@ -283,13 +286,15 @@ jQuery(document).ready(function($) {
                     .then(function (data) {
                         id = data.id;
                         console.log(id);
-                        insertarAlumnoTabla(id, nombre, apellido, notas)
+                        insertTabla(id, nombre, apellido, notas);
                         cargarMensaje("El alumno ha sido Guardado");
                     }, recogerErrorAjax)
                     .catch(function errorHandler(error) {
 
                     });
                 console.log(datos);
+                numeroalumnos ++;
+                calcularNAlumnos(numeroalumnos);
             }
 
 
@@ -391,7 +396,7 @@ function calcularMediaTotal() {
 
 }
 
-function insertTabla(id, dni, nombre, apellido, notas) {
+function insertTabla(id, nombre, apellido, notas) {
 
 
     var html_text  = "<tr>"+
@@ -420,7 +425,7 @@ function borrarDDBBAlumno(codigo){
         .catch(function errorHandler(error) {
 
         });
-    
+
 }
 
 function cargarMensaje(Mensaje){
