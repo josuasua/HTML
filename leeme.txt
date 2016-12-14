@@ -67,3 +67,5 @@ children()!= child()
 
 usaremos deployd para generar la bbdd y sus servicios web
 
+Babel pasa de javaScript 6 a javascript 5, para evitar problemas con IE
+
