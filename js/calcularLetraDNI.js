@@ -3,6 +3,7 @@
  */
 const URL ="http://localhost:2403/alumnos";
 var numeroalumnos = 0;
+var mediaTotal = 0;
 // var dnis = new Array();
 // var nombres = new Array();
 // var apellidos = new Array();
@@ -85,8 +86,14 @@ jQuery(document).ready(function($) {
         }
         numeroalumnos=data.length;
         calcularNAlumnos(numeroalumnos);
+        calcularMediaTotal();
+        console.log(mediaTotal);
 
 
+    }
+    function calcularMediaTotal () {
+        $('#alumnos div table tr span').text("Nota media: " + mediaTotal/numeroalumnos);
+        console.log(mediaTotal/numeroalumnos)
     }
 
     function calcularNAlumnos(len) {
@@ -295,6 +302,7 @@ jQuery(document).ready(function($) {
                 console.log(datos);
                 numeroalumnos ++;
                 calcularNAlumnos(numeroalumnos);
+                calcularMediaTotal();
             }
 
 
@@ -392,12 +400,9 @@ function CalcularMedia(numeros) {
     return media;
 }
 
-function calcularMediaTotal() {
-
-}
-
 function insertTabla(id, nombre, apellido, notas) {
 
+    var media = parseFloat(CalcularMedia([notas.UF1841,notas.UF1842, notas.UF1843, notas.UF1844, notas.UF1845, notas.UF1846]),10).toFixed(2);
 
     var html_text  = "<tr>"+
         "<td><input type='checkbox' value='" + id + "'></td>" +
@@ -409,12 +414,13 @@ function insertTabla(id, nombre, apellido, notas) {
         "<td>"+notas.UF1844+"</td>" +
         "<td>"+notas.UF1845+"</td>" +
         "<td>"+notas.UF1846+"</td>" +
-        "<td>"+CalcularMedia([notas.UF1841,notas.UF1842, notas.UF1843, notas.UF1844, notas.UF1845, notas.UF1846]).toFixed(2)+"</td>" +
+        "<td>"+media+"</td>" +
         "<td><button value='"+id+"'>Editar</button></td>" + // toFixed se pone al final, convierte calcularMedia en un String
 
         "</tr>";
-
+    mediaTotal += parseFloat(media,10).toFixed(2);
     $('#alumnos tbody').append(html_text);
+
 }
 
 function borrarDDBBAlumno(codigo){
