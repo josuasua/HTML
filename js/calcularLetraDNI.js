@@ -3,7 +3,7 @@
  */
 const URL ="http://localhost:2403/alumnos";
 var numeroalumnos = 0;
-var mediaTotal = 0;
+//var mediaTotal = 0; // Se usará en el futuro.
 // var dnis = new Array();
 // var nombres = new Array();
 // var apellidos = new Array();
@@ -58,7 +58,7 @@ jQuery(document).ready(function($) {
 
 
     function cargarAlumnos(data) {
-        console.log(data);
+
         for (var i = 0; i < data.length; i++) {
 
             var id = data[i].id;
@@ -87,13 +87,15 @@ jQuery(document).ready(function($) {
         numeroalumnos=data.length;
         calcularNAlumnos(numeroalumnos);
         calcularMediaTotal();
-        console.log(mediaTotal);
-
-
     }
     function calcularMediaTotal () {
-        $('#alumnos div table tr span').text("Nota media: " + mediaTotal/numeroalumnos);
-        console.log(mediaTotal/numeroalumnos)
+        var mediaTotal = 0;
+        var $tr = $("#alumnos table tbody tr").parents("tr"); // var con dolar se usa cuando son de html
+        console.log("Hola: " + $tr.find("td:nth-child(8)").val());
+        console.log("Hola 2: " + $tr.find("td:eq(8)").val());
+
+        $('#alumnos table tfoot tr').find("td:eq(0)").text("Nota Media: " + mediaTotal);
+
     }
 
     function calcularNAlumnos(len) {
@@ -186,6 +188,9 @@ jQuery(document).ready(function($) {
         $("#myModal div div ul li input").val("");
         $("#id").val("");
         $("#myModal").css("display", "block");
+
+
+
     });
 
     $("#alumnos button.btn-danger").on("click", function (e) {
@@ -208,6 +213,7 @@ jQuery(document).ready(function($) {
             $("#dni").val(data.dni);
             $("#nombre").val(data.nombre);
             $("#apellidos").val(data.apellidos);
+            $("#fecha").val(data.fecha);
             $("#UF1841").val(data.notas.UF1841);
             $("#UF1842").val(data.notas.UF1842);
             $("#UF1843").val(data.notas.UF1843);
@@ -235,6 +241,7 @@ jQuery(document).ready(function($) {
         var dni = $("#dni").val();
         var nombre = $("#nombre").val();
         var apellido = $("#apellidos").val();
+        var fecha = $("#Fecha").val();
         var notaUF1841 = parseFloat($("#UF1841").val(),10);
         var notaUF1842 = parseFloat($("#UF1842").val(),10);
         var notaUF1843 = parseFloat($("#UF1843").val(),10);
@@ -266,6 +273,12 @@ jQuery(document).ready(function($) {
             //mensaje error
         }
 
+        //edad entre 18 y 65
+        if(!comprobarFecha(fecha)){
+            valido = false;
+
+        }
+
         if (valido){
             var notas = {
                 'UF1841': notaUF1841,
@@ -284,6 +297,7 @@ jQuery(document).ready(function($) {
 
                      });
                 actualizarTabla(id, nombre, apellido,notas);
+
             }else{
                 //guardar BBDD (Create)
                 datos = {nombre: nombre, apellidos: apellido, dni: dni, notas: notas};
@@ -302,10 +316,10 @@ jQuery(document).ready(function($) {
                 console.log(datos);
                 numeroalumnos ++;
                 calcularNAlumnos(numeroalumnos);
-                calcularMediaTotal();
+
             }
 
-
+            calcularMediaTotal();
             //var id = addAlumno(dni, nombre, apellido,[notaUF1841,notaUF1842,notaUF1843,notaUF1844,notaUF1845,notaUF1846]);
             //añadir alumno a tabla vista
             //insertTabla(id, dni, nombre, apellido,notas);
@@ -390,7 +404,6 @@ function CalcularMedia(numeros) {
     //var media = (nUF1841 + nUF1842 + nUF1843 + nUF1844 + nUF1845 + nUF1846)/6;
     var media = 0;
     var len = numeros.length;
-    console.log(numeros.length);
     for (i=0; i <len; i++){
         if ((numeros[i])) {
             media += parseInt(numeros[i]);
@@ -418,7 +431,7 @@ function insertTabla(id, nombre, apellido, notas) {
         "<td><button value='"+id+"'>Editar</button></td>" + // toFixed se pone al final, convierte calcularMedia en un String
 
         "</tr>";
-    mediaTotal += parseFloat(media,10).toFixed(2);
+
     $('#alumnos tbody').append(html_text);
 
 }
@@ -428,6 +441,7 @@ function borrarDDBBAlumno(codigo){
     //var promesaBorrar = $.ajax(URL+"/"+codigo, {type:"DELETE"});
     ajax({url: URL, type: "DELETE", data: {id: codigo}})
         .then(cargarMensaje("El alumno ha sido borrado"), recogerErrorAjax)
+        .then(calcularMediaTotal)
         .catch(function errorHandler(error) {
 
         });
@@ -468,6 +482,45 @@ function comprobarTamano(nombre,tamano){
     }
 
     return bool;
+}
+
+function comprobarFecha(Fecha) {
+    // var bool = false;
+    // console.log(fecha);
+    // var parts = fecha.split("-");
+    // var anio = parts[2];
+    // var mes = parts[1];
+    // var dia = parts[0];
+    //
+    // console.log("Dia: " + dia);
+    // console.log("Mes: " + mes);
+    // console.log("año: " + anio);
+    //
+    // var today = new Date();
+    // var dd = today.getDate();
+    // var mm = today.getMonth()+1; //January is 0!
+    // var yyyy = today.getFullYear();
+    // console.log("Today" + today);
+    // console.log("Today - 18:" + yyyy);
+    //
+    // if(dd<10){
+    //     dd='0'+dd
+    // }
+    // if(mm<10){
+    //     mm='0'+mm
+    // }
+    //
+    // today = yyyy+'-'+mm+'-'+dd;
+    // return true;
+
+    fecha = new Date(Fecha)
+    hoy = new Date()
+    ed = parseInt((hoy -fecha)/365/24/60/60/1000);
+    console.log(ed);
+    if (ed < 18) {
+        return false;
+    }
+    return true;
 }
 
 function comprobarNotas(notas) {
