@@ -517,7 +517,7 @@ function comprobarFecha(Fecha) {
     hoy = new Date()
     ed = parseInt((hoy -fecha)/365/24/60/60/1000);
     console.log(ed);
-    if (ed < 18) {
+    if (ed < 18 && ed > 65) {
         return false;
     }
     return true;
