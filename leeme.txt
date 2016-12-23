@@ -69,3 +69,11 @@ usaremos deployd para generar la bbdd y sus servicios web
 
 Babel pasa de javaScript 6 a javascript 5, para evitar problemas con IE
 
+https://developers.google.com/maps/documentation/javascript/ para googlemaps
+
+firebase.  usando solo javascript, nos da un deployd en la google, amigos de google. BBDD no relacional, mandas JSon y el se gestiona todo
+
+https://firebase.google.com/?hl=es-419
+
+no ejecutar las lineas de comando como administrador
+

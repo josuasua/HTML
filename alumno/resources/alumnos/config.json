@@ -40,6 +40,22 @@
 			"required": false,
 			"id": "fecha",
 			"order": 4
+		},
+		"latlon": {
+			"name": "latlon",
+			"type": "object",
+			"typeLabel": "object",
+			"required": false,
+			"id": "latlon",
+			"order": 5
+		},
+		"direccion": {
+			"name": "direccion",
+			"type": "object",
+			"typeLabel": "object",
+			"required": false,
+			"id": "direccion",
+			"order": 6
 		}
 	}
 }

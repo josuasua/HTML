@@ -3,6 +3,9 @@
  */
 const URL ="http://localhost:2403/alumnos";
 var numeroalumnos = 0;
+var IDs = new Array();
+var notasMedias = new Array();
+
 //var mediaTotal = 0; // Se usará en el futuro.
 // var dnis = new Array();
 // var nombres = new Array();
@@ -33,27 +36,163 @@ var numeroalumnos = 0;
 // nUF1845['16087431N'] = 9;
 // nUF1846['16087431N'] = 8;
 jQuery(document).ready(function($) {
-    /*
-    var promesaCarga = $.ajax(URL, {type:"GET"});
-    promesaCarga.success(function (data) {
-        for (var i = 0; i < data.length; i++){
-            var id = data[i].id;
-            var dni = data[i].dni;
-            var nombre = data[i].nombre;
-            var apellido = data[i].apellidos;
-            var notas = new Array();
-            notas['UF1841'] = data[i].notas.UF1841;
-            notas['UF1842'] = data[i].notas["UF1842"];
-            notas['UF1843'] = data[i].notas["UF1843"];
-            notas['UF1844'] = data[i].notas["UF1844"];
-            notas['UF1845'] = data[i].notas["UF1845"];
-            notas['UF1846'] = data[i].notas["UF1846"];
 
-            insertTabla(id, dni, nombre, apellido, notas);
+    function getPreciseLocation() {
+        return new Promise(function (resolve, reject) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var results = {latitude: position.coords.latitude, longitude: position.coords.longitude};
+                resolve(results);
+            });
+        });
+    }
 
-        }
-        calcularNAlumnos(data.length);
-    }); */
+    function getCoordenates(direccion) {
+        var geocoder = new google.maps.Geocoder();
+
+        return new Promise(function (resolve, reject) {
+            geocoder.geocode({'address': direccion}, function (results, status) { // called asynchronously
+                if (status == google.maps.GeocoderStatus.OK) {
+                    var posicion = results[0].geometry.location;
+                    resolve(posicion);
+                } else {
+                    reject(status);
+                }
+            });
+        });
+    }
+    function getMapData() {//recoger los datos de empiece fin, modo de direcciones y del mapa
+        return new Promise(function (resolve, reject) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                //    var start = {latitude:'',longitude:''};
+                var end = {latitude: position.coords.latitude, longitude: position.coords.longitude};
+                var geocoder = new google.maps.Geocoder();
+                var address = 'Calle Gran Via 85, Bilbao, Bizkaia, España';
+                geocoder.geocode({'address': address}, function (results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        resultsMap.setCenter(results[0].geometry.location);
+                        var marker = new google.maps.Marker({
+                            map: resultsMap,
+                            position: results[0].geometry.location
+                        });
+                        console.log(results[0].geometry.location);
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+                var results = {start: start, end: end};
+                resolve(results);
+            });
+        });
+    }
+
+    function cargarMapa(result) {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var element = document.getElementById('mapa');
+        var end = new google.maps.LatLng(result.latitude, result.longitude);
+
+        var start = new google.maps.LatLng(43.2630126, -2.9349852000000283);
+        var mapOptions = {center: end, zoom: 14, scrollwheel: false};
+        var map = new google.maps.Map(element, mapOptions);
+        var geocoder = new google.maps.Geocoder();
+        var address = 'Gran Via 85, Bilbao, Bizkaia, España';
+        geocoder.geocode({'address': address}, function (results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                start = results[0].geometry.location;
+                var request = {
+                    origin: start,
+                    destination: end,
+                    travelMode: google.maps.DirectionsTravelMode.TRANSIT
+                };
+                directionsDisplay.setMap(map);
+                directionsDisplay.setPanel(document.getElementById('panel'));
+                // infowindow.open(map, marker);
+                //noinspection JSUnresolvedFunction
+                directionsService.route(request, function (response, status) {
+                    //noinspection JSUnresolvedVariable
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        //noinspection JSUnresolvedFunction
+                        directionsDisplay.setDirections(response);
+                    } else {
+                        console.log("error");
+                    }
+                });
+
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+
+    // getPreciseLocation()
+    //     .then(cargarMapa)
+    //     .catch(function errorHandler(error) {
+    //         console.log(error);
+    //     });
+
+
+    // function getPreciseLocation() {
+    //     return new Promise(function (resolve, reject) {
+    //         navigator.geolocation.getCurrentPosition(function (position) {
+    //             resolve({latitude: position.coords.latitude, longitude: position.coords.longitude});
+    //         });
+    //     });
+    // }
+    //
+    // function cargarMapa(coordenadas) {
+    //     var directionsDisplay = new google.maps.DirectionsRenderer();
+    //     var directionsService = new google.maps.DirectionsService();
+    //     console.log(coordenadas);
+    //     var element = document.getElementById('mapa');
+    //     var myCenter = new google.maps.LatLng(43.2564042, -2.913592300000005);
+    //     var mapOptions = {
+    //         //center: new google.maps.LatLng(, 43.2564042),
+    //         center: myCenter,
+    //         zoom: 14,
+    //         scrollwheel: false //no puede hacer scroll
+    //     };
+    //     var infowindow = new google.maps.InfoWindow({
+    //         content: "Aqui estamos."
+    //     });
+    //     var map = new google.maps.Map(element, mapOptions);
+    //     var marker = new google.maps.Marker({position: myCenter});
+    //     marker.setMap(map);
+    //     infowindow.open(map, marker);
+    //     directionsDisplay.setMap(map);
+    //     directionsDisplay.setPanel(document.getElementById('right-panel'));
+    //
+    //     var control = document.getElementById('floating-panel');
+    //     control.style.display = 'block';
+    //     map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
+    //
+    //     var onChangeHandler = function () {
+    //         calculateAndDisplayRoute(directionsService, directionsDisplay);
+    //     };
+    //
+    // }
+    //
+    // getPreciseLocation()
+    //     .then(initMap)
+    //     .then(cargarMapa)
+    //     .then(calculateAndDisplayRoute)
+    //     .catch(function errorHandler(error) {
+    //         console.log(error);
+    //     });
+    //
+    // function calcRoute() {
+    //     var end = document.getElementById("start").value;
+    //     var start = "masustegi kalea, 9, 48006 Bilbo, Bizkaia";
+    //     var request = {
+    //         origin: start,
+    //         destination: end,
+    //         travelMode: google.maps.TravelMode.transit
+    //     };
+    //     directionsService.route(request, function (result, status) {
+    //         if (status == google.maps.DirectionsStatus.OK) {
+    //             directionsDisplay.setDirections(result);
+    //         }
+    //     });
+    // }
 
 
 
@@ -86,16 +225,6 @@ jQuery(document).ready(function($) {
         }
         numeroalumnos=data.length;
         calcularNAlumnos(numeroalumnos);
-        calcularMediaTotal();
-    }
-    function calcularMediaTotal () {
-        var mediaTotal = 0;
-        var $tr = $("#alumnos table tbody tr").parents("tr"); // var con dolar se usa cuando son de html
-        console.log("Hola: " + $tr.find("td:nth-child(8)").val());
-        console.log("Hola 2: " + $tr.find("td:eq(8)").val());
-
-        $('#alumnos table tfoot tr').find("td:eq(0)").text("Nota Media: " + mediaTotal);
-
     }
 
     function calcularNAlumnos(len) {
@@ -108,6 +237,8 @@ jQuery(document).ready(function($) {
         $("#alumnos tbody tr input:checked").parents("tr").remove();
 
     }
+
+
 
     // function tracear(){
     //     // boolean, numericas, texto, Array (Object)
@@ -231,6 +362,15 @@ jQuery(document).ready(function($) {
 
     });
 
+    $("#estadisticas button.notas").on("click", function (e) {
+        ajax({url: URL, type: "GET"})
+            .then(calcularNotasyEdades, recogerErrorAjax)
+            .catch(function errorHandler(error) {
+
+            });
+
+    });
+
     $("#myModal button.btn-guardar").on("click", function (e) {
 
         //$("#myModal").addClass("");
@@ -252,24 +392,25 @@ jQuery(document).ready(function($) {
 
         if(!comprobarDNI(dni)){
             valido = false;
-            //mensaje error
+            $("#dni").siblings("p.error").text("DNI incorrecto");
         }
 
         //comprobar nombre > 3 letras
         if(!comprobarTamano(nombre,3)){
             valido = false;
-            //mensaje error
+            $("#nombre").siblings("p.error").text("Nombre incorrecto");
         }
 
         //comprobar apellidos > 7 letras
         if(!comprobarTamano(apellido,7)){
             valido = false;
-            //mensaje error
+            $("#apellidos").siblings("p.error").text("Apellido incorrecto");
         }
 
         //notas entre 0 y 10
         if(!comprobarNotas([notaUF1841,notaUF1842,notaUF1843,notaUF1844,notaUF1845,notaUF1846])){
             valido = false;
+
             //mensaje error
         }
 
@@ -340,7 +481,161 @@ jQuery(document).ready(function($) {
         .catch(function errorHandler(error) {
 
         });
+    function calcularNotasyEdades(data){
+        // Load Charts and the corechart package.
+        google.charts.load('current', {'packages':['corechart']});
+
+        // Draw the pie chart for Sarah's pizza when Charts is loaded.
+        google.charts.setOnLoadCallback(drawNotasChart(data));
+
+
+
+        // Callback that draws the pie chart for Sarah's pizza.
+        function drawNotasChart(datos) {
+
+            var suspendidos = 0;
+            var cinco = 0;
+            var seis = 0;
+            var siete = 0;
+            var ocho = 0;
+            var nueve = 0;
+            var diez = 0;
+
+            function suma(aux){
+                switch (aux){
+                    case 10:
+                        diez++;
+                        break;
+                    case 9:
+                        nueve++;
+                        break;
+                    case 8:
+                        ocho++;
+                        break;
+                    case 7:
+                        siete++;
+                        break;
+                    case 6:
+                        seis++;
+                        break;
+                    case 5:
+                        cinco++;
+                        break;
+                    default:
+                        suspendidos++;
+
+                }
+            }
+
+            for(var i= 0; i < datos.length; i++){
+                console.log("hi");
+                var aux = 0;
+                aux = datos[i].notas.UF1841;
+                suma(Math.floor(aux));
+                aux = datos[i].notas.UF1842;
+                suma(Math.floor(aux));
+                aux = datos[i].notas.UF1843;
+                suma(Math.floor(aux));
+                aux = datos[i].notas.UF1844;
+                suma(Math.floor(aux));
+                aux = datos[i].notas.UF1845;
+                suma(Math.floor(aux));
+                aux = datos[i].notas.UF1846;
+                suma(Math.floor(aux));
+
+            }
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Notas');
+            data.addColumn('number', 'notas');
+            data.addRows([
+                ['suspensos', suspendidos],
+                ['cinco', cinco],
+                ['seis', seis],
+                ['siete', siete],
+                ['ocho', ocho],
+                ['nueve', nueve],
+                ['diez', diez]
+            ]);
+
+            // Set options for Sarah's pie chart.
+            var options = {title:'Gráfica de notas',
+                width:400,
+                height:300};
+
+            // Instantiate and draw the chart for Sarah's pizza.
+            var chart = new google.visualization.PieChart(document.getElementById('charts_notas'));
+            chart.draw(data, options);
+        }
+
+        // Draw the pie chart for the Anthony's pizza when Charts is loaded.
+        google.charts.setOnLoadCallback(drawEdadesChart(data));
+
+        // Callback that draws the pie chart for Anthony's pizza.
+        function drawEdadesChart(datos) {
+
+            var menordieciocho = 0;
+            var dieciochoaveinticinco = 0;
+            var veintiseisatreinta = 0;
+            var treintayunoatreintaycinco = 0;
+            var mayortreintayseis = 0;
+
+            function sumando(eb){
+
+                if(eb<18){
+                    menordieciocho++;
+                }
+                if((ed > 18 && ed < 25)){
+                    dieciochoaveinticinco++;
+                }
+                if((ed > 25 && ed < 30)){
+                    veintiseisatreinta++;
+                }
+                if((ed > 30 && ed < 36)){
+                    treintayunoatreintaycinco++;
+                }
+                if(eb>35){
+                    mayortreintayseis++;
+                }
+            }
+
+            for(var i= 0; i < datos.length; i++){
+                console.log("hi");
+                var aux = 0;
+                var eb = 0;
+                aux = datos[i].fecha;
+                eb = calcularEdad(aux);
+                sumando(eb);
+
+            }
+
+            // Create the data table for Anthony's pizza.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Edades');
+            data.addColumn('number', 'edades');
+            data.addRows([
+                ['menores de dieciocho', menordieciocho],
+                ['dieciocho a veinticinco', dieciochoaveinticinco],
+                ['veintiseis a treinta', veintiseisatreinta],
+                ['treinta y uno a treinta y cinco', treintayunoatreintaycinco],
+                ['mayores', mayortreintayseis]
+            ]);
+
+            // Set options for Anthony's pie chart.
+            var options = {title:'Gráfica de edades',
+                width:400,
+                height:300};
+
+            // Instantiate and draw the chart for Anthony's pizza.
+            var chart = new google.visualization.PieChart(document.getElementById('charts_edades'));
+            chart.draw(data, options);
+        }
+
+    }
 });
+
+
+
 
 function ajax(opciones) {
     return new Promise(function (resolve, reject) {
@@ -413,7 +708,17 @@ function CalcularMedia(numeros) {
     return media;
 }
 
+function calcularEdad(Fecha){
+    fecha = new Date(Fecha)
+    hoy = new Date()
+    ed = parseInt((hoy -fecha)/365/24/60/60/1000);
+    console.log(ed);
+    return ed;
+}
+
 function insertTabla(id, nombre, apellido, notas) {
+
+
 
     var media = parseFloat(CalcularMedia([notas.UF1841,notas.UF1842, notas.UF1843, notas.UF1844, notas.UF1845, notas.UF1846]),10).toFixed(2);
 
@@ -430,6 +735,10 @@ function insertTabla(id, nombre, apellido, notas) {
         "<td>"+media+"</td>" +
         "<td><button value='"+id+"'>Editar</button></td>" + // toFixed se pone al final, convierte calcularMedia en un String
 
+        IDs.push(id);
+
+        notasMedias.push(media);
+
         "</tr>";
 
     $('#alumnos tbody').append(html_text);
@@ -441,7 +750,6 @@ function borrarDDBBAlumno(codigo){
     //var promesaBorrar = $.ajax(URL+"/"+codigo, {type:"DELETE"});
     ajax({url: URL, type: "DELETE", data: {id: codigo}})
         .then(cargarMensaje("El alumno ha sido borrado"), recogerErrorAjax)
-        .then(calcularMediaTotal)
         .catch(function errorHandler(error) {
 
         });
@@ -513,10 +821,7 @@ function comprobarFecha(Fecha) {
     // today = yyyy+'-'+mm+'-'+dd;
     // return true;
 
-    fecha = new Date(Fecha)
-    hoy = new Date()
-    ed = parseInt((hoy -fecha)/365/24/60/60/1000);
-    console.log(ed);
+    var ed = calcularEdad(Fecha);
     if (ed < 18 && ed > 65) {
         return false;
     }
@@ -535,3 +840,5 @@ function comprobarNotas(notas) {
 
     return bool;
 }
+
+
