@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de productos</title>
+  <link href="css/tablaParaJavaScript.css" rel ="stylesheet" type="text/css"/>
+  <script src="https://code.jquery.com/jquery-1.12.0.min.js" ></script>
+  <script src="https://www.gstatic.com/charts/loader.js" ></script>
+  <script src="js/calcularLetraDNI.js" ></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDmDbaJoo5O9YmyFtkERqFUmTYeIWlGyGw",
+      authDomain: "gestoralumnos-fade3.firebaseapp.com",
+      databaseURL: "https://gestoralumnos-fade3.firebaseio.com",
+      storageBucket: "gestoralumnos-fade3.appspot.com",
+      messagingSenderId: "715845465960"
+    };
+    firebase.initializeApp(config);
+  </script>
+</head>
+<body>
+<header>
+  <h1>Jugando con tablas</h1>
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#alumnos">Alumnos</a></li>
+      <li><a href="#localizacion">Localizacion</a></li>
+      <li><a href="#estadisticas">Estadisticas</a></li>
+      <li><a href="#AcercaDe">Acerca de</a></li>
+
+    </ul>
+  </nav>
+</header>
+<main id="cuerpomain" class="item">
+
+  <section id="alumnos">
+    <header><h2>Alumnos</h2></header>
+    <div>
+      <button class="btn btn-info">Añadir</button>
+      <button class="btn btn-danger">Borrar</button>
+      <span>Total Alumnos: </span>
+    </div>
+
+
+    <table>
+      <thead>
+      <tr>
+        <th><input type="checkbox" /></th>
+
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>UF1841</th>
+        <th>UF1842</th>
+        <th>UF1843</th>
+        <th>UF1844</th>
+        <th>UF1845</th>
+        <th>UF1846</th>
+        <th>Nota media</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tfoot>
+      <tr>
+        <td colspan="8">Nota Media:</td>
+        <td colspan="3"></td>
+      </tr>
+      </tfoot>
+      <tbody>
+      </tbody>
+    </table>
+
+
+  </section>
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">×</span>
+        <h2>Nuevo Alumno</h2>
+      </div>
+      <div class="modal-body">
+
+        <ul class="flex-outer">
+          <input type="hidden" value="id" id="id" name="id">
+          <li>
+            <label for="dni">DNI</label>
+            <input type="text" id="dni" name="dni" placeholder="Introduzca su dni" value="" tabindex="1" autofocus>
+          </li>
+          <li>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Introduzca su nombre" value="" tabindex="2">
+          </li>
+          <li>
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos" name="apellidos" placeholder="Introduzca sus apellidos" value="" tabindex="3">
+          </li>
+          <li>
+            <label for="Fecha">Fecha nacimiento</label>
+            <input type="date" id="Fecha" name="Fecha" step="1" min="" max="" value="" tabindex="4">
+          </li>
+          <li>
+            <label for="UF1841">UF1841</label>
+            <input type="text" id="UF1841" name="UF1841" placeholder="Introduzca la nota del modulo UF1841" value="" tabindex="5">
+          </li>
+          <li>
+            <label for="UF1842">UF1842</label>
+            <input type="text" id="UF1842" name="UF1842" placeholder="Introduzca la nota del modulo UF1842" value="" tabindex="6">
+          </li>
+          <li>
+            <label for="UF1843">UF1843</label>
+            <input type="text" id="UF1843" name="UF1843" placeholder="Introduzca la nota del modulo UF1843" value="" tabindex="7">
+          </li>
+          <li>
+            <label for="UF1844">UF1844</label>
+            <input type="text" id="UF1844" name="UF1844" placeholder="Introduzca la nota del modulo UF1844" value="" tabindex="8">
+          </li>
+          <li>
+            <label for="UF1845">UF1845</label>
+            <input type="text" id="UF1845" name="UF1845" placeholder="Introduzca la nota del modulo UF1845" value="" tabindex="9">
+          </li>
+          <li>
+            <label for="UF1846">UF1846</label>
+            <input type="text" id="UF1846" name="UF1846" placeholder="Introduzca la nota del modulo UF1846" value="" tabindex="10">
+          </li>
+
+
+          <li>
+            <button class="btn btn-guardar" type="submit">Submit</button>
+            <button class="btn btn-cancelar" type="submit">Cancelar</button>
+          </li>
+        </ul>
+
+      </div>
+      <div class="modal-footer">
+        <h3>Footer de la ventana modal</h3>
+      </div>
+    </div>
+
+  </div>
+  <section id="localizacion">
+    <header><h2>localizacion</h2></header>
+
+
+
+    <p>google maps con iframe, gratuito</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6911.159397149161!2d-2.913024649051121!3d43.25593638360026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb671edfb1120ab06!2sIpartek+Servicios+Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1481883792967" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+    <p>maps con google apis</p>
+
+    <!--<div id="right-panel"></div>-->
+    <!--<div id="map"></div>-->
+    <!--<div id="warnings-panel"></div>-->
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfqj6c5hSvECmbKXCalZCY4NzZJ3K5YUE&callback=initMap"-->
+    <!--async defer></script>-->
+
+
+  </section>
+  <section id="estadisticas">
+    <header><h2>Estadisticas</h2></header>
+    <h3>Estadisticas de notas</h3>
+    <button class="notas">Calcular graficos de notas y edades</button>
+    <div id="charts_notas"></div>
+    <h3>Estadisticas de edades</h3>
+    <div id="charts_edades"></div>
+
+  </section>
+</main>
+
+<footer>
+  <p>Pie</p>
+</footer>
+
+
+</body>
+</html>

@@ -1,7 +1,8 @@
 /**
  * Created by Josu on 30/11/2016.
  */
-const URL ="http://localhost:2403/alumnos";
+//const URL ="http://localhost:2403/alumnos";
+const URL ="";
 var numeroalumnos = 0;
 var IDs = new Array();
 var notasMedias = new Array();
@@ -36,6 +37,7 @@ google.charts.load('current', {'packages':['corechart']});
 // nUF1845['16087431N'] = 9;
 // nUF1846['16087431N'] = 8;
 jQuery(document).ready(function($) {
+
     function getPreciseLocation() {
         return new Promise(function (resolve, reject) {
             navigator.geolocation.getCurrentPosition(function (position) {

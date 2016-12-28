@@ -1,0 +1,350 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+    display: block;
+}
+body {
+    /*line-height: 1;*/
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+section{
+    position: relative;
+    padding-top: 32px;
+    padding-bottom: 20px;
+}
+#Presentacion{
+
+}
+#productos{
+
+}
+
+#Localizacion{
+
+}
+#contacto{
+
+}
+#AcercaDe{
+
+}
+/***** ****/
+*{
+    font-size: 16pt;
+    font-family: Calibri, Verdana;
+}
+h1,h2,h3,h4,h5,h6{
+    /*font-family: Calibri, Andalus, Verdana, Arial;*/
+
+}
+h1{
+    font-size: 150%;
+    text-align: center;
+}
+h2{
+    font-size: 140%;
+}
+h3{
+    font-size: 130%;
+}
+header{
+    font-family: "Times New Roman";
+}
+
+body{
+    /*max-width: 1024px;*/
+    margin: 0;
+    background: #bebebe;
+}
+body div#wrapper > header{ /*Puede ponerse directamente div#wrapper sin body, ya que en teoria el id tiene que ser unico, incluso #wrapper*/
+    width: 100%;
+    margin: 0;
+    position: relative;
+    top: 32px;
+    background-color: #d9d9e0;
+}
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height:32px;
+    width: 100%;
+    z-index: 100;
+}
+nav ul {
+    background: aqua;
+    height: 32px;
+}
+
+@-moz-keyframes slider { /*Firefox*/
+    0% {left: 0%;}
+    20%{left: 0%;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: -200%;}
+    75%{left: -300%;}
+    95%{left: -300%;}
+    100%{left: -400%;}
+}
+
+@-webkit-keyframes slider { /*chrome*/
+    0% {left: 0%;}
+    20%{left: 0%;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: -200%;}
+    75%{left: -300%;}
+    95%{left: -300%;}
+    100%{left: -400%;}
+}
+
+@-ms-keyframes slider { /*Microsoft*/
+    0% {left: 0%;}
+    20%{left: 0%;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: -200%;}
+    75%{left: -300%;}
+    95%{left: -300%;}
+    100%{left: -400%;}
+}
+
+@-khtml-keyframes slider {
+    0% {left: 0%;}
+    20%{left: 0%;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: -200%;}
+    75%{left: -300%;}
+    95%{left: -300%;}
+    100%{left: -400%;}
+}
+@-o-keyframes slider {
+    0% {left: 0%;}
+    20%{left: 0%;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: -200%;}
+    75%{left: -300%;}
+    95%{left: -300%;}
+    100%{left: -400%;}
+}
+
+@keyframes slider { /*generico*/
+    0% {left: 0%;}
+    20%{left:0%;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: -200%;}
+    75%{left: -300%;}
+    95%{left: -300%;}
+    100%{left: -400%;}
+}
+
+.tab section {
+    display: none;
+}
+
+.tab section:target {
+    display: block;
+}
+
+div#slider figure img{
+    width:calc(100%/5);
+    float: left;
+}
+
+div#slider figure{
+    position: relative;
+    width: 500%; /*puedo poner tb 500vw, no siempre es lo mismo. Esto hace referencia al viewport, ancho del elemento*/
+    left: 0;
+    margin:0;
+    animation: 20s slider infinite;
+    border-image-width: 0;
+}
+div#slider{
+    overflow-x: hidden;
+}
+
+div#slider3{
+
+    width : 100%;
+    max-width:100%;
+    position:relative;
+    left:0;
+    margin:0;
+    overflow-x: hidden;
+}
+.foto1 {
+    /*top:800px;*/
+    width: 100%;
+    z-index: 0;
+    transition: 0.2s;
+    animation: move 20s linear infinite alternate;
+}
+.foto3 {
+    /*top:800px;*/
+    width: 100%;
+    z-index: 1;
+}
+
+@keyframes move {
+    from { z-index: 0; transform: scale(1); }
+    to { z-index: 2; transform: scale(1); }
+}
+
+@-webkit-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+@-moz-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+@-ms-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+@-o-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+@-khtml-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+
+@keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+
+.css-slider{
+    position: absolute; /* All slides will have absolute position */
+
+    width: 100%; /* Make it responsive */
+    padding: 0; margin: 0;
+    list-style-type: none;
+    float:left;
+    /*overflow: hidden; /* In case images will have wrong aspect ratio */
+}
+
+.css-slider li img{width: 100%;} /* And make images responsive as well */
+
+.css-slider li{
+    position: absolute; top:0; right: 0; bottom: 0; left: 0; /* Make it fill whole slider container */
+    opacity: 0; /* Hide it */
+    animation: css-slider 20s infinite; /* Use keyframe animation from above */
+}
+
+
+
+.css-slider li:nth-child(1){-webkit-animation-delay: 0s;}
+.css-slider li:nth-child(2){-webkit-animation-delay: 4s;}
+.css-slider li:nth-child(3){-webkit-animation-delay: 8s;}
+.css-slider li:nth-child(4){-webkit-animation-delay: 12s;}
+.css-slider li:nth-child(5){-webkit-animation-delay: 16s;}
+
+nav{
+    display: flex;
+
+}
+
+ul{
+
+    display: block;
+
+}
+ul li{
+    float: left;
+    min-width: 100px;
+    text-align: center;
+}
+footer{
+    background: #03fcff;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+}
+
+#conejo{
+    border-radius: 50%
+}
+
+#footer{
+    text-align: center;
+
+}
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+
+@media (min-width: 320px){
+    nav{
+        display:none;
+    }
+}
+@media (min-width: 768px){
+    nav{
+        display:block;
+        position: absolute;
+    }
+}
+@media (min-width: 900px){
+    nav{
+        position: fixed;
+    }
+}

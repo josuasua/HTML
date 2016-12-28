@@ -1,0 +1,120 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+    display: block;
+}
+body {
+    /*line-height: 1;*/
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+/***** ****/
+
+.tab section {
+    display: none;
+}
+
+.tab section:target {
+    display: block;
+}
+
+div#slider2{
+
+    width : 100%;
+    max-width:100%;
+    left:0;
+    margin:0;
+    overflow-x: hidden;
+}
+
+@-webkit-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+@-moz-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+@-ms-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+@-o-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+@-khtml-keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+
+@keyframes css-slider {
+    10%{opacity: 1;} /* This is where slide becomes visible, duration 10 % of 20 sec */
+    20%{opacity: 1;} /* Still visible, little more then middle point (100 % / 5 slides) */
+    40%{opacity: 0;} /* Now its hidden, when next slide is fully visible */
+}
+
+.css-slider{
+    position: absolute; /* All slides will have absolute position */
+    top:0; left: 0;
+    width: 100%; /* Make it responsive */
+    padding: 0; margin: 0;
+    list-style-type: none;
+    float:left;
+    /*overflow: hidden; /* In case images will have wrong aspect ratio */
+}
+
+.css-slider li img{width: 100%;} /* And make images responsive as well */
+
+.css-slider li{
+    position: absolute; top:0; right: 0; bottom: 0; left: 0; /* Make it fill whole slider container */
+    opacity: 0; /* Hide it */
+    animation: css-slider 20s infinite; /* Use keyframe animation from above */
+}
+
+
+
+.css-slider li:nth-child(1){-webkit-animation-delay: 0s;}
+.css-slider li:nth-child(2){-webkit-animation-delay: 4s;}
+.css-slider li:nth-child(3){-webkit-animation-delay: 8s;}
+.css-slider li:nth-child(4){-webkit-animation-delay: 12s;}
+.css-slider li:nth-child(5){-webkit-animation-delay: 16s;}

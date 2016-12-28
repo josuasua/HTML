@@ -77,3 +77,15 @@ https://firebase.google.com/?hl=es-419
 
 no ejecutar las lineas de comando como administrador
 
+
+javascript 4 capas
+
+1.- capa vista: React JS (API de facebook, orientado a componentes o funcionalidades)
+2.- capa control: AngularJS (2)
+3.- capa logica:Java, c#, NodeJS. aqui usaremos control de paquetes NPM para node, gestores paquetes de java, maven y gradle, nugget en c#
+4.- capa BBDD (Persistencia): ORM(Hibernate en java, o spring jdbc, LinQ en c# y express en NodeJS).
+BBDD: Oracle, mysql, sqlserver, mongoDB
+
+las capas dos y tres estarian unidas con servicios webs.
+las capas 1 y 2, para minimizar codigo, cumplir estandar, juntar archivos, aplicar SAS a css. usa Grunt, Gulp, tareas repetitivas. cualquier tarea.
+
